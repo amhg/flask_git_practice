@@ -88,7 +88,7 @@ def logout():
     print(f'cookie session: {dict(session)}')
     session.pop('username')
     print(f'After pop cookie session: {dict(session)}')
-    return jsonify({'message': 'Logged out successfully'}), 200
+    return jsonify({'message': 'User is logged'}), 200
 
 
 @current_app.route('/set_theme')
