@@ -1,0 +1,3 @@
+TESTING = true
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://flaskuser:flaskpass@localhost/flaskdb"
+SECRET_KEY = "secret_key"

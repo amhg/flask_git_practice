@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test template</title>
+
+<style>
+    body.light {
+        background-color: rgb(168, 134, 226);
+        color: black;
+    }
+    body.dark {
+        background-color: #222;
+        color: white;
+    }
+</style>
+</head>
+
+<body class="{{ theme }}">
+    <p>Session: {{ session | tojson }}</p>
+    <button onclick="setDarkTheme()">Set Dark Theme</button>
+
+
+    <script>
+        function setDarkTheme() {
+            fetch('/set_theme')
+            .then(() => {
+                window.location.reload()
+            });
+        }
+    </script>
+</body>
+
+</html>

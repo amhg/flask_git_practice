@@ -1,0 +1,53 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Add</title>
+</head>
+<body>
+    <h2>User sign up</h2>
+    {{ render_error_flash('error-id') }}
+   <form action="{{request.path}}" method="post">
+        {{ form.csrf_token }}
+        {#
+        <p>Session: {{ session | tojson }}</p>
+        #}
+        <div>{{ form.username(size=25, placeholder="Username", class="form-control") }}</div> 
+
+        {% if form.username.errors %}
+            <ul>
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <div> {{ form.password(size=25, placeholder='Password', class="form-control") }}</div>
+
+        {% if form.password.errors %}
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <div> {{ form.user_type(class="form-control") }}</div>
+
+        {% if form.user_type.errors %}
+            <ul>
+                {% for error in form.user_type.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <div><button type="submit">Add Login Account</button></div>
+    </form>
+</body>
+</html>
