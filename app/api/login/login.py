@@ -16,6 +16,10 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
+@current_app.route("/loginrebase")
+def profile():
+    return "login demo rebase"
+
 
 @current_app.route('/testform', methods = ['GET', 'POST'])
 def test_form():
