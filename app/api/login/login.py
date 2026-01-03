@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 @current_app.route("/loginrebase")
 def profile():
-    print("Login request received")
+    print("Login route loaded")
     return "login demo rebase"
 
 
